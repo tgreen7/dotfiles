@@ -96,6 +96,6 @@ source $ZSH/oh-my-zsh.sh
 
 # # source
 
-for file in $HOME/.oh-my-zsh/custom/sourced/*; do
+for file in $ZSH_CUSTOM/sourced/*; do
 	source "$file"
 done
