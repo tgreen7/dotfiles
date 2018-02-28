@@ -1,15 +1,16 @@
-#                 __                     
-#                /\ \                    
-#   ____     ____\ \ \___   _ __   ___   
-#  /\_ ,`\  /',__\\ \  _ `\/\`'__\/'___\ 
-#  \/_/  /_/\__, `\\ \ \ \ \ \ \//\ \__/ 
+#                 __
+#                /\ \
+#   ____     ____\ \ \___   _ __   ___
+#  /\_ ,`\  /',__\\ \  _ `\/\`'__\/'___\
+#  \/_/  /_/\__, `\\ \ \ \ \ \ \//\ \__/
 #    /\____\/\____/ \ \_\ \_\ \_\\ \____\
 #    \/____/\/___/   \/_/\/_/\/_/ \/____/
-#                                        
-#                                        
+#
+#
 
 # Path to your oh-my-zsh installation.
 ZSH=$HOME/.oh-my-zsh
+ZSH_CUSTOM=$HOME/dotfiles/zshcustom
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -59,11 +60,10 @@ COMPLETION_WAITING_DOTS="true"
 # Custom pluttgins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# 
+#
 plugins=(z)
 
 # User configuration
-
 
 # export MANPATH="/usr/local/man:$MANPATH"
 # Set path
@@ -97,5 +97,5 @@ source $ZSH/oh-my-zsh.sh
 # # source
 
 for file in $HOME/.oh-my-zsh/custom/sourced/*; do
-   source "$file"
+	source "$file"
 done
