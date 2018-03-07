@@ -73,6 +73,7 @@ PATH="$PATH:/usr/bin"
 PATH="$PATH:/bin"
 PATH="$PATH:/usr/sbin"
 PATH="$PATH:/sbin"
+PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 export PATH=${PATH}
 
