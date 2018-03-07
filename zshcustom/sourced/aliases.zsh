@@ -1,13 +1,12 @@
-#          ___                                          
-#         /\_ \    __                                   
-#     __  \//\ \  /\_\     __      ____     __    ____  
-#   /'__`\  \ \ \ \/\ \  /'__`\   /',__\  /'__`\ /',__\ 
+#          ___
+#         /\_ \    __
+#     __  \//\ \  /\_\     __      ____     __    ____
+#   /'__`\  \ \ \ \/\ \  /'__`\   /',__\  /'__`\ /',__\
 #  /\ \L\.\_ \_\ \_\ \ \/\ \L\.\_/\__, `\/\  __//\__, `\
 #  \ \__/.\_\/\____\\ \_\ \__/.\_\/\____/\ \____\/\____/
-#   \/__/\/_/\/____/ \/_/\/__/\/_/\/___/  \/____/\/___/ 
-#                                                       
-#                                                       
-
+#   \/__/\/_/\/____/ \/_/\/__/\/_/\/___/  \/____/\/___/
+#
+#
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -19,19 +18,19 @@
 alias zshconfig='$EDITOR ~/.oh-my-zsh/custom/myzsh.zshrc'
 alias zshsource='source ~/.zshrc'
 alias zshtheme='$EDITOR ~/.oh-my-zsh/custom/themes/custom.zsh-theme'
-alias ohmyzsh='$EDITOR ~/.oh-my-zsh/custom'
+alias ohmyzsh='$EDITOR ~/dotfiles/zshcustom'
 
 alias s='$EDITOR'
 
 alias cp='cp -iv'
-alias mv='mv -iv' 
+alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 
 alias ls='ls -FG'
 
-alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
+alias f='open -a Finder ./'         # f:            Opens current directory in MacOS Finder
 
-alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
+alias path='echo -e ${PATH//:/\\n}' # path:         Echo all executable Paths
 
 alias findve='open -a Finder ~/Sites/ve'
 alias ve='$EDITOR ~/Sites/ve'
@@ -69,8 +68,8 @@ alias npmr="npm run"
 # Teselagen
 tes='docker run -p 3000:3000 --privileged --rm -ti -e HIST_FILE=/root/.bash_history'
 tes+=' -v ~/.bash_history:/root/.bash_history -v ~/Sites/tesela_bashrc.txt:/root/.bashrc'
-tes+=' -v ~/Sites/j5:/usr/local/share/perl5/Bio/Tools/j5_source/ -v ~/Sites/ve:/home/teselagen/ve' 
-tes+=' -v ~/Sites/appconfig.docker.json:/home/teselagen/ve/api_server_bookshelf/appconfig.docker.json' 
+tes+=' -v ~/Sites/j5:/usr/local/share/perl5/Bio/Tools/j5_source/ -v ~/Sites/ve:/home/teselagen/ve'
+tes+=' -v ~/Sites/appconfig.docker.json:/home/teselagen/ve/api_server_bookshelf/appconfig.docker.json'
 tes+=' dev.teselagen.com:5000/newdev /bin/bash'
 alias tes=$tes
 alias tedocker='cd ~/Sites/ve; appimagename=dev.teselagen.com:5000/newdev docker-compose run -p 3000:3000 -p 9229:9229 app'
@@ -86,7 +85,7 @@ alias glog3="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %
 
 alias gst="git stash"
 alias gsta="git stash apply"
-
+alias gs="git status"
 alias gco="git checkout"
 alias gd="git diff"
 alias gds="git diff --shortstat"
