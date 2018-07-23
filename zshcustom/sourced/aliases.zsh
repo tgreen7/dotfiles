@@ -98,7 +98,7 @@ alias gh='open $(git config remote.origin.url)'
 
 alias gdelete='git branch --merged | egrep -v "(^\*|master|qa)" | xargs git branch -d'
 
-alias lims='osascript ~/Sites/scripts/launch-lims.scpt'
+# alias lims='osascript ~/Sites/scripts/launch-lims.scpt'
 alias limsclient='cd ~/Sites/lims && ys'
 alias limsserver='cd ~/Sites/lims/server && ys'
 alias limsdev='ssh -i "~/.ssh/teselagen_dev.pem" ubuntu@ec2-52-9-77-80.us-west-1.compute.amazonaws.com'

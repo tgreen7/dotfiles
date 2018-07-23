@@ -26,9 +26,9 @@ function attach() {
 gcam() {
 	git add -A
 	git commit -m "$1" $2
-	ggpush
 }
 
+# usage: pubminor "adding a new feature"
 pubpatch() {
 	git pull
 	git add .
@@ -46,4 +46,18 @@ pubmajor() {
 	git add .
 	git commit -am "$1"
 	npm version major && npm publish && git pull && git push
+}
+
+# usage: pubminorgithub "adding a new feature"
+pubpatchgithub() {
+	git pull && git add . && git commit -am "$1"
+	npm version patch && git tag -m "$1" -a $(node -p "require('./package.json').version") && git pull && git push && git push origin --tags && printf "###################\n\n You can install this commit using:\n\n yarn add $(node -p "require('./package.json').repository")#$(node -p "require('./package.json').version") \n\n ################## \n"
+}
+pubminorgithub() {
+	git pull && git add . && git commit -am "$1"
+	npm version minor && git tag -m "$1" -a $(node -p "require('./package.json').version") && git pull && git push && git push origin --tags && printf "###################\n\n You can install this commit using:\n\n yarn add $(node -p "require('./package.json').repository")#$(node -p "require('./package.json').version") \n\n ################## \n"
+}
+pubmajorgithub() {
+	git pull && git add . && git commit -am "$1"
+	npm version major && git tag -m "$1" -a $(node -p "require('./package.json').version") && git pull && git push && git push origin --tags && printf "###################\n\n You can install this commit using:\n\n yarn add $(node -p "require('./package.json').repository")#$(node -p "require('./package.json').version") \n\n ################## \n"
 }
