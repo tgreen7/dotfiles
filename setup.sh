@@ -1,6 +1,6 @@
 cd $HOME
 
-DOTFILES_DIR=$HOME/dotfiles
+DOTFILES_DIR=$HOME/Sites/dotfiles
 
 # Change to the dotfiles directory either way
 cd $DOTFILES_DIR

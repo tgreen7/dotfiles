@@ -10,7 +10,7 @@
 
 # Path to your oh-my-zsh installation.
 ZSH=$HOME/.oh-my-zsh
-ZSH_CUSTOM=$HOME/dotfiles/zshcustom
+ZSH_CUSTOM=$HOME/Sites/dotfiles/zshcustom
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
