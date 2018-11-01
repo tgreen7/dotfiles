@@ -103,6 +103,9 @@ alias limsclient='cd ~/Sites/lims && ys'
 alias limsserver='cd ~/Sites/lims/server && ys'
 alias limsdev='ssh -i "~/.ssh/teselagen_dev.pem" ubuntu@ec2-52-9-77-80.us-west-1.compute.amazonaws.com'
 
-alias qa='gco qa && git merge master && git push origin qa && gco master'
+alias qa='gco qa && ggpull && git merge master && ggpush && gco master'
 # sudo -s
 # docker exec -ti lims_app bash
+
+# yalc
+alias yalcpub='yarn build && yalc publish --force'
