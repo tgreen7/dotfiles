@@ -18,7 +18,7 @@
 alias zshconfig='$EDITOR ~/.oh-my-zsh/custom/myzsh.zshrc'
 alias zshsource='source ~/.zshrc'
 alias zshtheme='$EDITOR ~/.oh-my-zsh/custom/themes/custom.zsh-theme'
-alias ohmyzsh='$EDITOR ~/dotfiles/zshcustom'
+alias ohmyzsh='$EDITOR ~/Sites/dotfiles/zshcustom'
 
 alias s='$EDITOR'
 
@@ -48,9 +48,13 @@ alias editweb='sshfs -p 21098 taohpjgs@server221.web-hosting.com:/ Remote'
 #yarn
 alias ys='yarn start'
 alias ya='yarn add'
+alias yt='yarn test'
 alias yr='yarn remove'
 alias yui='yarn upgrade-interactive --latest'
 alias yb='yarn build'
+alias dys='DEBUG_DB=1 ys'
+alias yl='yarn link'
+alias yls='( ls -l node_modules ; ls -l node_modules/@* ) | grep ^l'
 
 # Install dependencies globally
 alias npmg="npm i -g"
@@ -87,6 +91,7 @@ alias gst="git stash"
 alias gsta="git stash apply"
 alias gs="git status"
 alias gco="git checkout"
+alias gcom="git checkout master"
 alias gd="git diff"
 alias gds="git diff --shortstat"
 alias gm='git merge'
