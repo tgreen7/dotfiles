@@ -87,7 +87,7 @@ alias glog="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %C
 alias glog2="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --all --since=2.days.ago --author=Taoh"
 alias glog3="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --all --since=3.days.ago --until=2.days.ago --author=Taoh"
 
-alias gst="git stash"
+alias gst="git stash -u"
 alias gsta="git stash apply"
 alias gs="git status"
 alias gco="git checkout"
@@ -95,11 +95,15 @@ alias gcom="git checkout master"
 alias gd="git diff"
 alias gds="git diff --shortstat"
 alias gm='git merge'
+alias gmm='git merge origin master'
 alias gb='git branch'
+alias gcp='git cherry-pick'
 alias ggpull='git pull origin $(git_current_branch)'
 alias ggpush='git push origin $(git_current_branch)'
 alias greset='git reset --hard HEAD'
 alias gh='open $(git config remote.origin.url)'
+
+alias pushit='echo -e "\n\033[1;31m Ah push it \033[0m\n" && git push origin && echo -e "\n\033[1;32m :notes: PUSH IT REAL GOOD :notes: -🧂:hot_pepper:\033[0m\n"'
 
 alias gdelete='git branch --merged | egrep -v "(^\*|master|qa)" | xargs git branch -d'
 
@@ -114,3 +118,17 @@ alias qa='gco qa && ggpull && git merge master && ggpush && gco master'
 
 # yalc
 alias yalcpub='yarn build && yalc publish --force'
+
+# open slack in dev mode
+alias slackdev='SLACK_DEVELOPER_MENU=true open -a /Applications/Slack.app'
+
+alias refreshschema='sh ~/Sites/drop-and-sync/refresh-schema.sh'
+
+# lims aliases
+alias lims='cd ~/Sites/lims && TG_CLIENTS=b@host yarn start-app-proxy'
+alias limsd='cd ~/Sites/lims && TG_INSPECT_BACKEND=1 TG_CLIENTS=b@host yarn start-app-proxy'
+alias limsr='cd ~/Sites/lims && TG_RESTART=1 TG_CLIENTS=b@host yarn start-app-proxy'
+alias limsdr='cd ~/Sites/lims && TG_INSPECT_BACKEND=1 TG_RESTART=1 TG_CLIENTS=b@host yarn start-app-proxy'
+alias limsrd='cd ~/Sites/lims && TG_INSPECT_BACKEND=1 TG_RESTART=1 TG_CLIENTS=b@host yarn start-app-proxy'
+alias limsc='cd ~/Sites/lims && TG_CLIENTS=1 yarn start-build-client'
+alias limsdeps='cd ~/Sites/lims && yarn && yarn --cwd ./e2e-tests && yarn --cwd ./server && yarn --cwd ./client  && yarn --cwd ./tg-iso-lims && yarn --cwd ./app-proxy'

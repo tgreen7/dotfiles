@@ -33,19 +33,50 @@ pubpatch() {
 	git pull
 	git add .
 	git commit -am "$1"
-	npm version patch && npm publish && git pull && git push
+	npm version patch && npm publish && git pull && git add .
+	git commit -am "publishing new patch"
+	git push
 }
 pubminor() {
 	git pull
 	git add .
 	git commit -am "$1"
-	npm version minor && npm publish && git pull && git push
+	npm version minor && npm publish && git pull && git add .
+	git commit -am "publishing new minor"
+	git push
 }
 pubmajor() {
 	git pull
 	git add .
 	git commit -am "$1"
-	npm version major && npm publish && git pull && git push
+	npm version major && npm publish && git pull && git add .
+	git commit -am "publishing new major"
+	git push
+}
+
+pubpatchbeta() {
+	git pull
+	git add .
+	git commit -am "$1"
+	npm version patch && npm publish --tag beta && git pull && git add .
+	git commit -am "publishing new beta patch"
+	git push
+}
+pubminorbeta() {
+	git pull
+	git add .
+	git commit -am "$1"
+	npm version minor && npm publish --tag beta && git pull && git add .
+	git commit -am "publishing new beta minor"
+	git push
+}
+pubmajorbeta() {
+	git pull
+	git add .
+	git commit -am "$1"
+	npm version major && npm publish --tag beta && git pull && git add .
+	git commit -am "publishing new beta major"
+	git push
 }
 
 # usage: pubminorgithub "adding a new feature"
@@ -66,10 +97,10 @@ pubmajorgithub() {
 }
 
 diffdb() {
-	git diff --name-only master..$1 server/src/logical-model  
+	git diff --name-only master..$1 server/src/logical-model
 }
 
 # test function for docker release
 chbr() {
-  sed -i "" -e 's/rc_[[:digit:]][[:digit:]]*\.[[:digit:]][[:digit:]]*\.[[:digit:]][[:digit:]]*/'"$1"'/g' ~/Desktop/test.txt
+	sed -i "" -e 's/rc_[[:digit:]][[:digit:]]*\.[[:digit:]][[:digit:]]*\.[[:digit:]][[:digit:]]*/'"$1"'/g' ~/Desktop/test.txt
 }

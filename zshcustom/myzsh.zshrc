@@ -74,6 +74,8 @@ PATH="$PATH:/bin"
 PATH="$PATH:/usr/sbin"
 PATH="$PATH:/sbin"
 PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
+# rust
+PATH="$PATH:$HOME/.cargo/bin"
 
 export PATH=${PATH}
 
@@ -100,3 +102,7 @@ source $ZSH/oh-my-zsh.sh
 for file in $ZSH_CUSTOM/sourced/*; do
 	source "$file"
 done
+
+# yvm
+export YVM_DIR=/usr/local/opt/yvm
+[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
