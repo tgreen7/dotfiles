@@ -1,0 +1,16 @@
+{
+  "name": "limslauncher",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "inquirer": "^7.0.0",
+    "shelljs": "^0.8.3"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  }
+}
