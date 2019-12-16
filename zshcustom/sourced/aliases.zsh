@@ -125,7 +125,7 @@ alias slackdev='SLACK_DEVELOPER_MENU=true open -a /Applications/Slack.app'
 alias refreshschema='sh ~/Sites/drop-and-sync/refresh-schema.sh'
 
 # lims aliases
-alias lims='cd ~/Sites/dotfiles/limslauncher && yarn start'
+alias lims='cd ~/Sites/lims && yarn --cwd ~/Sites/dotfiles/limslauncher start'
 alias limsscript='osascript ~/Sites/dotfiles/scripts/lims.applescript'
 alias limss='cd ~/Sites/lims && TG_CLIENTS=b@host yarn start-app-proxy'
 alias limsd='cd ~/Sites/lims && TG_INSPECT_BACKEND=1 TG_CLIENTS=b@host yarn start-app-proxy'

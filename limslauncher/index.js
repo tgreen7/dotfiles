@@ -34,13 +34,13 @@ inquirer
       message:
         "What command do you want to run? (Arrow keys to select, enter to confirm)",
       choices: [
-        "Launch lims server and client",
         "Launch lims server",
+        "Launch lims client",
         "Launch lims server w/ debugging",
         "Launch lims server and drop and sync",
         "Launch lims server w/ debugging and drop and sync",
-        "Launch lims client",
-        "Install dependencies"
+        "Install dependencies",
+        "Launch lims server and client"
       ]
     }
   ])
