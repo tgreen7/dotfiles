@@ -96,12 +96,6 @@ alias ggpush='git push origin $(git_current_branch)'
 alias greset='git reset --hard HEAD'
 alias gh='open $(git config remote.origin.url)'
 alias gdelete='git branch --merged | egrep -v "(^\*|master|qa)" | xargs git branch -d'
-
-# alias lims='osascript ~/Sites/scripts/launch-lims.scpt'
-# alias limsclient='cd ~/Sites/lims && ys'
-# alias limsserver='cd ~/Sites/lims/server && ys'
-# alias limsdev='ssh -i "~/.ssh/teselagen_dev.pem" ubuntu@ec2-52-9-77-80.us-west-1.compute.amazonaws.com'
-
 # sudo -s
 # docker exec -ti lims_app bash
 
@@ -114,12 +108,6 @@ alias slackdev='SLACK_DEVELOPER_MENU=true open -a /Applications/Slack.app'
 alias refreshschema='sh ~/Sites/drop-and-sync/refresh-schema.sh'
 
 # lims aliases
-alias lims='cd ~/Sites/lims && yarn --cwd ~/Sites/dotfiles/limslauncher start'
-alias limsscript='osascript ~/Sites/dotfiles/scripts/lims.applescript'
-alias limss='cd ~/Sites/lims && TG_CLIENTS=b@host yarn start-app-proxy'
-alias limsd='cd ~/Sites/lims && TG_INSPECT_BACKEND=1 TG_CLIENTS=b@host yarn start-app-proxy'
-alias limsr='cd ~/Sites/lims && TG_RESTART=1 TG_CLIENTS=b@host yarn start-app-proxy'
-alias limsdr='cd ~/Sites/lims && TG_INSPECT_BACKEND=1 TG_RESTART=1 TG_CLIENTS=b@host yarn start-app-proxy'
-alias limsrd='cd ~/Sites/lims && TG_INSPECT_BACKEND=1 TG_RESTART=1 TG_CLIENTS=b@host yarn start-app-proxy'
-alias limsc='cd ~/Sites/lims && TG_CLIENTS=1 yarn start-build-client'
-alias limsdeps='cd ~/Sites/lims && yarn && yarn --cwd ./e2e-tests && yarn --cwd ./server && yarn --cwd ./client  && yarn --cwd ./tg-iso-lims && yarn --cwd ./app-proxy'
+alias lims='cd ~/Sites/lims && LIMS=1 yarn --cwd ~/Sites/dotfiles/limslauncher start'
+alias hde='cd ~/Sites/lims && HDE=1 yarn --cwd ~/Sites/dotfiles/limslauncher start'
+alias cypress='cd ~/Sites/lims && yarn c'
