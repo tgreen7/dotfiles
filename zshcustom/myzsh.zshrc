@@ -61,7 +61,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #
-plugins=(z)
+plugins=()
 
 # User configuration
 
@@ -78,6 +78,14 @@ PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 PATH="$PATH:$HOME/.cargo/bin"
 
 export PATH=${PATH}
+
+# yvm
+export YVM_DIR=/usr/local/Cellar/yvm/3.6.1
+[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,7 +110,3 @@ source $ZSH/oh-my-zsh.sh
 for file in $ZSH_CUSTOM/sourced/*; do
 	source "$file"
 done
-
-# yvm
-export YVM_DIR=/usr/local/opt/yvm
-[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh

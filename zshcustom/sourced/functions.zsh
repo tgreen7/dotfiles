@@ -31,76 +31,56 @@ gcam() {
 # usage: pubminor "adding a new feature"
 pubpatch() {
 	git pull
-	git add .
+	git add -A
 	git commit -am "$1"
-	npm version patch && npm publish && git pull && git add .
-	git commit -am "publishing new patch"
+	npm version patch && npm publish
+	git add -A
+	git commit -m "publishing new patch"
 	git push
 }
 pubminor() {
 	git pull
-	git add .
-	git commit -am "$1"
-	npm version minor && npm publish && git pull && git add .
-	git commit -am "publishing new minor"
+	git add -A
+	git commit -m "$1"
+	npm version minor && npm publish
+	git add -A
+	git commit -m "publishing new minor"
 	git push
 }
 pubmajor() {
 	git pull
-	git add .
-	git commit -am "$1"
-	npm version major && npm publish && git pull && git add .
-	git commit -am "publishing new major"
+	git add -A
+	git commit -m "$1"
+	npm version major && npm publish
+	git add -A
+	git commit -m "publishing new major"
 	git push
 }
 
 pubpatchbeta() {
 	git pull
-	git add .
-	git commit -am "$1"
-	npm version patch && npm publish --tag beta && git pull && git add .
-	git commit -am "publishing new beta patch"
+	git add -A
+	git commit -m "$1"
+	npm version patch && npm publish --tag beta
+	git add -A
+	git commit -m "publishing new beta patch"
 	git push
 }
 pubminorbeta() {
 	git pull
-	git add .
-	git commit -am "$1"
-	npm version minor && npm publish --tag beta && git pull && git add .
-	git commit -am "publishing new beta minor"
+	git add -A
+	git commit -m "$1"
+	npm version minor && npm publish --tag beta
+	git add -A
+	git commit -m "publishing new beta minor"
 	git push
 }
 pubmajorbeta() {
 	git pull
-	git add .
-	git commit -am "$1"
-	npm version major && npm publish --tag beta && git pull && git add .
-	git commit -am "publishing new beta major"
+	git add -A
+	git commit -m "$1"
+	npm version major && npm publish --tag beta
+	git add -A
+	git commit -m "publishing new beta major"
 	git push
-}
-
-# usage: pubminorgithub "adding a new feature"
-pubpatchgithub() {
-	npm run build
-	git pull && git add . && git commit -am "$1"
-	npm version patch && git tag -m "$1" -a $(node -p "require('./package.json').version") && git pull && git push origin --tags && git push && printf "###################\n\n You can install this commit using:\n\n yarn add $(node -p "require('./package.json').repository")#$(node -p "require('./package.json').version") \n\n ################## \n"
-}
-pubminorgithub() {
-	npm run build
-	git pull && git add . && git commit -am "$1"
-	npm version minor && git tag -m "$1" -a $(node -p "require('./package.json').version") && git pull && git push origin --tags && git push && printf "###################\n\n You can install this commit using:\n\n yarn add $(node -p "require('./package.json').repository")#$(node -p "require('./package.json').version") \n\n ################## \n"
-}
-pubmajorgithub() {
-	npm run build
-	git pull && git add . && git commit -am "$1"
-	npm version major && git tag -m "$1" -a $(node -p "require('./package.json').version") && git pull && git push origin --tags && git push && printf "###################\n\n You can install this commit using:\n\n yarn add $(node -p "require('./package.json').repository")#$(node -p "require('./package.json').version") \n\n ################## \n"
-}
-
-diffdb() {
-	git diff --name-only master..$1 server/src/logical-model
-}
-
-# test function for docker release
-chbr() {
-	sed -i "" -e 's/rc_[[:digit:]][[:digit:]]*\.[[:digit:]][[:digit:]]*\.[[:digit:]][[:digit:]]*/'"$1"'/g' ~/Desktop/test.txt
 }

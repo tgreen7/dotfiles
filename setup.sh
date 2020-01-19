@@ -27,5 +27,4 @@ cp $DOTFILES_DIR/gitconfig $HOME/.gitconfig
 # install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install node
-npm install -g n yarn
+brew install node yvm z

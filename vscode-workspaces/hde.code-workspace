@@ -4,9 +4,12 @@
       "path": "/Users/taoh/Sites/lims/client-design"
     },
     {
-      "path": "/Users/taoh/Sites/lims/server"
+      "path": "/Users/taoh/Sites/lims/tg-iso-design"
     },
     {
+      "path": "/Users/taoh/Sites/lims/server"
+    },
+    { 
       "path": "/Users/taoh/Sites/lims/e2e-tests"
     }
   ],

@@ -4,6 +4,7 @@
 #   /'__`\  \ \ \ \/\ \  /'__`\   /',__\  /'__`\ /',__\
 #  /\ \L\.\_ \_\ \_\ \ \/\ \L\.\_/\__, `\/\  __//\__, `\
 #  \ \__/.\_\/\____\\ \_\ \__/.\_\/\____/\ \____\/\____/
+
 #   \/__/\/_/\/____/ \/_/\/__/\/_/\/___/  \/____/\/___/
 #
 #
@@ -26,9 +27,9 @@ alias mkdir='mkdir -pv'
 
 alias ls='ls -FG'
 
-alias f='open -a Finder ./'         # f:            Opens current directory in MacOS Finder
+alias f='open -a Finder ./' # f: Opens current directory in MacOS Finder
 
-alias path='echo -e ${PATH//:/\\n}' # path:         Echo all executable Paths
+alias path='echo -e ${PATH//:/\\n}' # path: Echo all executable Paths
 
 alias findve='open -a Finder ~/Sites/ve'
 alias ve='$EDITOR ~/Sites/ve'
@@ -51,15 +52,10 @@ alias yls='( ls -l node_modules ; ls -l node_modules/@* ) | grep ^l'
 
 # Install dependencies globally
 alias npmg="npm i -g"
-
 # Install and save to dependencies in your package.json
-# npms is used by https://www.npmjs.com/package/npms
 alias npmd="npm i --save-dev"
-
 # Install and save to dev-dependencies in your package.json
-# npmd is used by https://github.com/dominictarr/npmd
 alias npms="npm i --save"
-
 alias npmr="npm run"
 
 # Teselagen
@@ -108,6 +104,13 @@ alias slackdev='SLACK_DEVELOPER_MENU=true open -a /Applications/Slack.app'
 alias refreshschema='sh ~/Sites/drop-and-sync/refresh-schema.sh'
 
 # lims aliases
-alias lims='cd ~/Sites/lims && LIMS=1 yarn --cwd ~/Sites/dotfiles/limslauncher start'
-alias hde='cd ~/Sites/lims && HDE=1 yarn --cwd ~/Sites/dotfiles/limslauncher start'
+alias hde='cd ~/Sites/lims && DESIGN=1 yarn --cwd ~/Sites/lims/applauncher start'
+alias design='cd ~/Sites/lims && DESIGN=1 yarn --cwd ~/Sites/lims/applauncher start'
+alias build='cd ~/Sites/lims && BUILD=1 yarn --cwd ~/Sites/lims/applauncher start'
+alias lims='cd ~/Sites/lims && BUILD=1 yarn --cwd ~/Sites/lims/applauncher start'
+alias test='cd ~/Sites/lims && TEST=1 yarn --cwd ~/Sites/lims/applauncher start'
+alias evolve='cd ~/Sites/lims && EVOLVE=1 yarn --cwd ~/Sites/lims/applauncher start'
+alias app='cd ~/Sites/lims && APP=1 yarn --cwd ~/Sites/lims/applauncher start'
 alias cypress='cd ~/Sites/lims && yarn c'
+
+alias limsdocker='cd ~/Sites/lims && yarn docker-build && yarn docker-build-ci && yarn run-dc'

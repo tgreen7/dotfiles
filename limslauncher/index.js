@@ -7,18 +7,20 @@ const restart = "TG_RESTART=1";
 const refreshSchema = "refreshSchema=1";
 
 const commonDeps =
-  "yarn && yarn --cwd ./e2e-tests && yarn --cwd ./server && yarn --cwd ./app-proxy";
+  "yarn && yarn --cwd ./e2e-tests --color=always && yarn --cwd ./server --color=always && yarn --cwd ./app-proxy --color=always";
 
 let moduleName = "lims";
 let server = "TG_CLIENTS=b@host yarn start-app-proxy";
 let client = "TG_CLIENTS=1 yarn start-build-client";
-let deps = `${commonDeps} && yarn --cwd ./client && yarn --cwd ./tg-iso-lims`;
+let deps = `${commonDeps} && yarn --cwd ./client --color=always && yarn --cwd ./tg-iso-lims --color=always`;
 
 if (process.env.HDE) {
   moduleName = "hde";
   server = "TG_CLIENTS=d@host yarn start-app-proxy";
   client = "TG_CLIENTS=1 yarn start-design-client";
   deps = `${commonDeps} && yarn --cwd ./client-design  && yarn --cwd ./tg-iso-design`;
+} else if (process.env.APP) {
+  server = "yarn start-app-proxy";
 }
 
 program.name(moduleName);
@@ -46,13 +48,15 @@ program
     shelljs.exec(cmdToRun);
   });
 
-program
-  .command("client")
-  .description(`launch ${moduleName} client`)
-  .action(() => {
-    const cmdToRun = `${cdToFolder} && ${client}`;
-    shelljs.exec(cmdToRun);
-  });
+if (!process.env.APP) {
+  program
+    .command("client")
+    .description(`launch ${moduleName} client`)
+    .action(() => {
+      const cmdToRun = `${cdToFolder} && ${client}`;
+      shelljs.exec(cmdToRun);
+    });
+}
 
 program
   .command("deps")
@@ -61,6 +65,12 @@ program
     const cmdToRun = `${cdToFolder} && ${deps}`;
     shelljs.exec(cmdToRun);
   });
+
+// error on unknown commands
+program.on("command:*", function() {
+  console.error("Invalid command: %s\n", program.args.join(" "));
+  program.help();
+});
 
 program.parse(process.argv);
 
