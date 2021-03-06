@@ -41,6 +41,7 @@ alias ucsc='sshfs tmgreen@unix.ucsc.edu:/afs/cats.ucsc.edu/users/c/tmgreen Remot
 alias dockkill='docker-compose down'
 
 #yarn
+alias y='yarn'
 alias ys='yarn start'
 alias ya='yarn add'
 alias yt='yarn test'
@@ -78,20 +79,22 @@ alias glog3="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %
 
 alias gst="git stash -u"
 alias gsta="git stash apply"
+alias gstp="git stash pop"
 alias gs="git status"
 alias gco="git checkout"
 alias gcom="git checkout master"
 alias gd="git diff"
 alias gds="git diff --shortstat"
 alias gm='git merge'
-alias gmm='git merge origin master'
+alias gmm='ggpull && git merge origin master'
 alias gb='git branch'
 alias gcp='git cherry-pick'
 alias ggpull='git pull origin $(git_current_branch)'
 alias ggpush='git push origin $(git_current_branch)'
 alias greset='git reset --hard HEAD'
-alias gh='open $(git config remote.origin.url)'
 alias gdelete='git branch --merged | egrep -v "(^\*|master|qa)" | xargs git branch -d'
+alias gempty='gcam "empty" --allow-empty && ggpush'
+alias gpr="gh pr create --web"
 # sudo -s
 # docker exec -ti lims_app bash
 
@@ -103,14 +106,42 @@ alias slackdev='SLACK_DEVELOPER_MENU=true open -a /Applications/Slack.app'
 
 alias refreshschema='sh ~/Sites/drop-and-sync/refresh-schema.sh'
 
+# gcp: wipe pr and redeploy
+alias tg-gcp='npx --ignore-existing @teselagen/tg-gcp'
+alias resetpr='npx --ignore-existing @teselagen/tg-gcp resetPRApp'
+#then use docker exec -it /bin/bash
+alias connectpr='tg-gcp connectToProjectAppEngine tg-app-dev --default'
 # lims aliases
-alias hde='cd ~/Sites/lims && DESIGN=1 yarn --cwd ~/Sites/lims/applauncher start'
-alias design='cd ~/Sites/lims && DESIGN=1 yarn --cwd ~/Sites/lims/applauncher start'
-alias build='cd ~/Sites/lims && BUILD=1 yarn --cwd ~/Sites/lims/applauncher start'
+# dont override "test" alias, it is used by zsh
+alias d='cd ~/Sites/lims && DESIGN=1 yarn --cwd ~/Sites/lims/applauncher start'
 alias lims='cd ~/Sites/lims && BUILD=1 yarn --cwd ~/Sites/lims/applauncher start'
-alias test='cd ~/Sites/lims && TEST=1 yarn --cwd ~/Sites/lims/applauncher start'
-alias evolve='cd ~/Sites/lims && EVOLVE=1 yarn --cwd ~/Sites/lims/applauncher start'
+
+alias b='cd ~/Sites/lims && BUILD=1 yarn --cwd ~/Sites/lims/applauncher start'
+alias bc='b client'
+alias bs='b server'
+alias bsr='b server -r'
+alias dc='d client'
+alias ds='d server'
+alias dsr='d server -r'
+alias ec='e client'
+alias es='e server'
+alias tc='t client'
+alias ts='t server'
+alias t='cd ~/Sites/lims && TEST=1 yarn --cwd ~/Sites/lims/applauncher start'
+alias e='cd ~/Sites/lims && EVOLVE=1 yarn --cwd ~/Sites/lims/applauncher start'
 alias app='cd ~/Sites/lims && APP=1 yarn --cwd ~/Sites/lims/applauncher start'
+
+alias d2='cd ~/Sites/lims2 && CD_TO_FOLDER="~/Sites/lims2" DESIGN=1 yarn --cwd ~/Sites/lims2/applauncher start'
+alias b2='cd ~/Sites/lims2 && CD_TO_FOLDER="~/Sites/lims2" BUILD=1 yarn --cwd ~/Sites/lims2/applauncher start'
+alias t2='cd ~/Sites/lims2 && CD_TO_FOLDER="~/Sites/lims2" TEST=1 yarn --cwd ~/Sites/lims2/applauncher start'
+alias e2='cd ~/Sites/lims2 && CD_TO_FOLDER="~/Sites/lims2" EVOLVE=1 yarn --cwd ~/Sites/lims2/applauncher start'
+alias app2='cd ~/Sites/lims2 && CD_TO_FOLDER="~/Sites/lims2" APP=1 yarn --cwd ~/Sites/lims2/applauncher start'
+
 alias cypress='cd ~/Sites/lims && yarn c'
 
+alias codefresh='cd ~/Sites/lims && yarn docker-build && yarn docker-build-ci && yarn run-dc; yarn c'
+
 alias limsdocker='cd ~/Sites/lims && yarn docker-build && yarn docker-build-ci && yarn run-dc'
+alias cleanj5='node ~/Sites/dotfiles/scripts/cleanJ5Report.js'
+
+alias cleanvscode='rm -rf ~/Library/Application\ Support/Code/Cache/* && rm -rf ~/Library/Application\ Support/Code/CachedData/*'

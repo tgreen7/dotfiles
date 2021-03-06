@@ -84,3 +84,9 @@ pubmajorbeta() {
 	git commit -m "publishing new beta major"
 	git push
 }
+
+gupdate() {
+	gco $1
+	gmm
+	ggpush
+}

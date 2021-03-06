@@ -61,7 +61,9 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #
-plugins=()
+plugins=(z zsh-autosuggestions)
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
 # User configuration
 
@@ -79,13 +81,11 @@ PATH="$PATH:$HOME/.cargo/bin"
 
 export PATH=${PATH}
 
-# yvm
-export YVM_DIR=/usr/local/Cellar/yvm/3.6.1
-[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
+
+
+export PATH="/Applications/pgsql/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,6 +107,23 @@ source $ZSH/oh-my-zsh.sh
 
 # # source
 
+
+# yvm
+export YVM_DIR=/Users/taoh/.yvm
+[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
+
 for file in $ZSH_CUSTOM/sourced/*; do
 	source "$file"
 done
+
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/} ($(git_current_branch))\007"'
+
+precmd() {
+	eval "$PROMPT_COMMAND"
+}
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/taoh/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/taoh/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/taoh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/taoh/google-cloud-sdk/completion.zsh.inc'; fi
