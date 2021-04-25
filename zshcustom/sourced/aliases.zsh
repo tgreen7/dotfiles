@@ -59,19 +59,6 @@ alias npmd="npm i --save-dev"
 alias npms="npm i --save"
 alias npmr="npm run"
 
-# Teselagen
-# tes='docker run -p 3000:3000 --privileged --rm -ti -e HIST_FILE=/root/.bash_history'
-# tes+=' -v ~/.bash_history:/root/.bash_history -v ~/Sites/tesela_bashrc.txt:/root/.bashrc'
-# tes+=' -v ~/Sites/j5:/usr/local/share/perl5/Bio/Tools/j5_source/ -v ~/Sites/ve:/home/teselagen/ve'
-# tes+=' -v ~/Sites/appconfig.docker.json:/home/teselagen/ve/api_server_bookshelf/appconfig.docker.json'
-# tes+=' dev.teselagen.com:5000/newdev /bin/bash'
-# alias tes=$tes
-# alias tedocker='cd ~/Sites/ve; appimagename=dev.teselagen.com:5000/newdev docker-compose run -p 3000:3000 -p 9229:9229 app'
-# alias dropAndUpdate='docker exec -it ve_db /bin/bash /dockerScripts/dropAndCreateSchema.sh'
-# alias randomUsers='docker exec -it ve_db /bin/bash /dockerScripts/randomUsers.sh'
-# alias viewDbStartupProgress='docker logs -f ve_db'
-# alias senchasass='cd ~/Sites/ve/vede; sencha ant sass'
-
 # git
 alias glog="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --all --since=1.days.ago --author=Taoh"
 alias glog2="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --all --since=2.days.ago --author=Taoh"
@@ -145,3 +132,5 @@ alias limsdocker='cd ~/Sites/lims && yarn docker-build && yarn docker-build-ci &
 alias cleanj5='node ~/Sites/dotfiles/scripts/cleanJ5Report.js'
 
 alias cleanvscode='rm -rf ~/Library/Application\ Support/Code/Cache/* && rm -rf ~/Library/Application\ Support/Code/CachedData/*'
+
+alias cleandocker='docker volume prune; docker image prune; docker system prune;'

@@ -18,11 +18,11 @@ else
 fi
 
 # sync ohmyzsh settings
-cp $DOTFILES_DIR/zshrc $HOME/.zshrc
-source $HOME/.zshrc
+cp "$DOTFILES_DIR/zshrc" "$HOME/.zshrc"
+source "$HOME/.zshrc"
 
 # gitconfig settings
-cp $DOTFILES_DIR/gitconfig $HOME/.gitconfig
+cp "$DOTFILES_DIR/gitconfig" "$HOME/.gitconfig"
 
 # install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

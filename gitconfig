@@ -6,3 +6,11 @@
 [user]
 	name = Taoh Green
 	email = taohgreen@gmail.com
+[core]
+	mergeoptions = --no-edit
+	editor = code --wait
+	excludesfile = ~/.gitignore_global
+[pull]
+	rebase = false
+[commit]
+	template = /Users/taoh/.stCommitMsg

@@ -2967,8 +2967,6 @@ Lims Workflow:Restore Window Arrangement</string>
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
-	<key>PreventEscapeSequenceFromClearingHistory</key>
-	<false/>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -2984,7 +2982,7 @@ Lims Workflow:Restore Window Arrangement</string>
 	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>ShowNewOutputIndicator</key>
 	<true/>
 	<key>ShowPaneTitles</key>

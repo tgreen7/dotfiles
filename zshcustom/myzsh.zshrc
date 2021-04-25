@@ -61,7 +61,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #
-plugins=(z zsh-autosuggestions)
+plugins=(z)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
@@ -80,6 +80,8 @@ PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 PATH="$PATH:$HOME/.cargo/bin"
 
 export PATH=${PATH}
+
+
 
 
 
