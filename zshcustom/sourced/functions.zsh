@@ -90,3 +90,7 @@ gupdate() {
 	gmm
 	ggpush
 }
+
+gbh() { #git branch history (show the 30 most recent branches)
+	git reflog | grep -E -io "moving from ([^[:space:]]+)" | awk '{ print $3 }' | awk ' !x[$0]++' | grep -E -v '^[a-f0-9]{40}$' | head -n10
+}

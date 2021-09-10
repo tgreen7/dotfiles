@@ -73,7 +73,7 @@ alias gcom="git checkout master"
 alias gd="git diff"
 alias gds="git diff --shortstat"
 alias gm='git merge'
-alias gmm='ggpull && git merge origin master'
+alias gmm='ggpull; git merge origin/master'
 alias gb='git branch'
 alias gcp='git cherry-pick'
 alias ggpull='git pull origin $(git_current_branch)'
@@ -84,6 +84,7 @@ alias gempty='gcam "empty" --allow-empty && ggpush'
 alias gpr="gh pr create --web"
 # sudo -s
 # docker exec -ti lims_app bash
+alias fixPackageConflicts='node ~/Sites/dotfiles/scripts/fixPackageJsonConflicts.js'
 
 # yalc
 alias yalcpub='yarn build && yalc publish --force'
@@ -116,7 +117,9 @@ alias tc='t client'
 alias ts='t server'
 alias t='cd ~/Sites/lims && TEST=1 yarn --cwd ~/Sites/lims/applauncher start'
 alias e='cd ~/Sites/lims && EVOLVE=1 yarn --cwd ~/Sites/lims/applauncher start'
-alias app='cd ~/Sites/lims && APP=1 yarn --cwd ~/Sites/lims/applauncher start'
+# alias app='cd ~/Sites/lims && APP=1 yarn --cwd ~/Sites/lims/applauncher start'
+alias app='cd ~/Sites/lims && yarn start-app-proxy'
+alias appr='cd ~/Sites/lims && yarn restart'
 
 alias d2='cd ~/Sites/lims2 && CD_TO_FOLDER="~/Sites/lims2" DESIGN=1 yarn --cwd ~/Sites/lims2/applauncher start'
 alias b2='cd ~/Sites/lims2 && CD_TO_FOLDER="~/Sites/lims2" BUILD=1 yarn --cwd ~/Sites/lims2/applauncher start'
