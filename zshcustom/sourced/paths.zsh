@@ -7,3 +7,7 @@
 #    \ \ \/  \/__/\/_/ \/__/ \/_/\/_/\/___/ 
 #     \ \_\                                 
 #      \/_/                                 
+
+# android
+export ANDROID_SDK=$HOME/Library/Android/sdk
+export PATH=$ANDROID_SDK/platform-tools:$PATH

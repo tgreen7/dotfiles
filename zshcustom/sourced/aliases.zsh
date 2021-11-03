@@ -137,3 +137,6 @@ alias cleanj5='node ~/Sites/dotfiles/scripts/cleanJ5Report.js'
 alias cleanvscode='rm -rf ~/Library/Application\ Support/Code/Cache/* && rm -rf ~/Library/Application\ Support/Code/CachedData/*'
 
 alias cleandocker='docker volume prune; docker image prune; docker system prune;'
+
+alias ysap="cd ~/Sites/lims && yarn start-app-proxy"
+alias yr="cd ~/Sites/lims && yarn restart"

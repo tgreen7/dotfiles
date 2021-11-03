@@ -28,6 +28,11 @@ gcam() {
 	git commit -m "$1" $2
 }
 
+gcamn() {
+	git add -A
+	PRECOMMIT_LINT="" git commit -m "$1" $2
+}
+
 # usage: pubminor "adding a new feature"
 pubpatch() {
 	git pull
@@ -93,4 +98,31 @@ gupdate() {
 
 gbh() { #git branch history (show the 30 most recent branches)
 	git reflog | grep -E -io "moving from ([^[:space:]]+)" | awk '{ print $3 }' | awk ' !x[$0]++' | grep -E -v '^[a-f0-9]{40}$' | head -n10
+}
+
+prlogs() {
+	open "https://console.cloud.google.com/kubernetes/deployment/us-central1-a/dev-cluster/pr-app-$1/tg-app/logs?authuser=1&project=tg-cluster-dev"
+}
+
+# tester() {
+# 	echo "$1"
+# 	echo "$(git_current_branch)"
+# 	if [[ "$(git_current_branch)" == "$1" ]]; then
+# 	 	echo "on branch"
+# 	else
+# 	  echo "not on branch"
+# 	fi
+# }
+
+gcob() {
+	wasStashed=true
+	if gst | grep -q 'No local changes'; then
+		wasStashed=false
+	fi
+	gco master
+	ggpull
+	gco -b $1
+	if $wasStashed; then
+		git stash pop
+	fi
 }
