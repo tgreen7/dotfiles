@@ -126,3 +126,38 @@ gcob() {
 		git stash pop
 	fi
 }
+
+cypressDocker() {
+	cd ~/Sites/lims/e2e-tests
+	# docker run --env CYPRESS_BASE_URL="http://host.docker.internal:3000/" \
+	docker run --env CYPRESS_BASE_URL="https://pr-app-8514.teselagen.net/" \
+		--env CYPRESS_TEST_FILES="**/build/Tools/idtOrdering.js" \
+		-it -v $PWD/../tg-iso-shared:/tg-iso-shared -w /tg-iso-shared -v $PWD:/e2e -w /e2e cypress/included:8.5.0
+
+	# not working trying to get runner to show
+	# IP=$(ipconfig getifaddr en0)
+	# DISPLAY=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
+	# echo $DISPLAY
+	# docker run --rm --name firefox \
+	# 	-e DISPLAY=$DISPLAY:0 \
+	# 	-e XAUTHORITY=/.Xauthority \
+	# 	-v ~/.Xauthority:/.Xauthority \
+	# 	jess/firefox
+	# cd ~/Sites/lims/e2e-tests
+	# docker run \
+	# 	--env CYPRESS_BASE_URL="http://host.docker.internal:3000/" --env CYPRESS_TEST_FILES="**/dataSets.js" \
+	# 	-it \
+	# 	-v $PWD/../tg-iso-shared:/tg-iso-shared -w /tg-iso-shared \
+	# 	-v $PWD:/e2e \
+	# 	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	# 	-e DISPLAY=$DISPLAY:0 \
+	# 	-e XAUTHORITY=/.Xauthority \
+	# 	-v ~/.Xauthority:/.Xauthority \
+	# 	-w /e2e \
+	# 	--entrypoint cypress \
+	# 	cypress/included:8.5.0 open --project .
+}
+
+killport() {
+	lsof -i tcp:${1} | awk 'NR!=1 {print $2}' | xargs kill -9
+}

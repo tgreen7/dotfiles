@@ -110,10 +110,6 @@ source $ZSH/oh-my-zsh.sh
 # # source
 
 
-# yvm
-export YVM_DIR=/Users/taoh/.yvm
-[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
-
 for file in $ZSH_CUSTOM/sourced/*; do
 	source "$file"
 done

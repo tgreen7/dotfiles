@@ -129,6 +129,7 @@ alias app2='cd ~/Sites/lims2 && CD_TO_FOLDER="~/Sites/lims2" APP=1 yarn --cwd ~/
 
 alias cypress='cd ~/Sites/lims && yarn c'
 
+
 alias codefresh='cd ~/Sites/lims && yarn docker-build && yarn docker-build-ci && yarn run-dc; yarn c'
 
 alias limsdocker='cd ~/Sites/lims && yarn docker-build && yarn docker-build-ci && yarn run-dc'
