@@ -115,16 +115,31 @@ prlogs() {
 # }
 
 gcob() {
-	wasStashed=true
-	if gst | grep -q 'No local changes'; then
-		wasStashed=false
+	if [ -z $1 ]; then
+		echo "Please pass branch name"
+		return
 	fi
-	gco master
+	wasStashed=false
+	if [[ "$(git_current_branch)" != "master" ]]; then
+		if gst | grep -q 'No local changes'; then
+		else
+			wasStashed=true
+		fi
+		gco master
+	fi
 	ggpull
 	gco -b $1
 	if $wasStashed; then
 		git stash pop
 	fi
+}
+
+# checkout a new branch, commit and push local changes, start a PR -- gcbpr newBranch 'added new feature xyz'
+gcbpr() {
+	gcob $1
+	gcam $2
+	ggpush
+	gh pr create --web
 }
 
 cypressDocker() {

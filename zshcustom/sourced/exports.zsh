@@ -18,4 +18,4 @@ export HISTORY_IGNORE="(ls|cd|pwd|exit|cd ..)";
 export LANG="en_US.UTF-8";
 export LC_ALL="en_US.UTF-8";
 export trc="teselagen-react-components";
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_281)
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0_281)

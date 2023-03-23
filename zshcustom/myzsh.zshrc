@@ -76,18 +76,17 @@ PATH="$PATH:/bin"
 PATH="$PATH:/usr/sbin"
 PATH="$PATH:/sbin"
 PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
+#python
+PATH="$PATH:/opt/homebrew/Cellar/python@3.9/3.9.12/libexec/bin"
 # rust
 PATH="$PATH:$HOME/.cargo/bin"
 
 export PATH=${PATH}
 
-
-
-
-
 export PATH="/Applications/pgsql/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+export N_PREFIX="$HOME/n"
+[[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin" # Added by n-install (see http://git.io/n-install-repo).
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,12 +108,13 @@ source $ZSH/oh-my-zsh.sh
 
 # # source
 
-
 for file in $ZSH_CUSTOM/sourced/*; do
 	source "$file"
 done
 
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/} ($(git_current_branch))\007"'
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 precmd() {
 	eval "$PROMPT_COMMAND"

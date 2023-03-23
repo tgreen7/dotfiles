@@ -74,6 +74,14 @@ function git_current_branch() {
   echo ${ref#refs/heads/}
 }
 
+function git_main_branch() {
+  if git rev-parse --quiet --verify main > /dev/null; then
+    echo "main"
+  else
+    echo "master"
+  fi
+}
+
 
 # Gets the number of commits ahead from remote
 function git_commits_ahead() {
