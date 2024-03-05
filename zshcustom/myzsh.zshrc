@@ -80,6 +80,7 @@ PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 PATH="$PATH:/opt/homebrew/Cellar/python@3.9/3.9.12/libexec/bin"
 # rust
 PATH="$PATH:$HOME/.cargo/bin"
+PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 export PATH=${PATH}
 

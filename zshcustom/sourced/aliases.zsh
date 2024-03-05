@@ -64,7 +64,16 @@ alias glog="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %C
 alias glog2="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --all --since=2.days.ago --author=Taoh"
 alias glog3="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --all --since=3.days.ago --until=2.days.ago --author=Taoh"
 
-alias gst='git stash -u'
+unalias gst
+
+gst() {
+  if [ $1 ]; then
+		git stash -u -m $1
+		return
+	fi
+  git stash -u
+}
+
 alias gsta='git stash apply'
 alias gstp='git stash pop'
 alias gs='git status'
@@ -82,17 +91,17 @@ alias greset='git reset --hard HEAD'
 alias gdelete='git branch --merged | egrep -v "(^\*|master|qa|main)" | xargs git branch -d'
 alias gempty='gcam "empty" --allow-empty && ggpush'
 alias gpr='gh pr create --web'
+alias gres='git reset --hard HEAD'
+alias gcop='echo "🙏 praise be 🙏" && git checkout -'
+alias gitmissingtext='git log -c -S' # git log -c -S'missingtext' /path/to/file
 # sudo -s
 # docker exec -ti lims_app bash
 alias fixPackageConflicts='node ~/Sites/dotfiles/scripts/fixPackageJsonConflicts.js'
-
-# yalc
-alias yalcpub='yarn build && yalc publish --force'
+alias yarndepsrunclean='yarn clean-node-modules && yarn deps && yarn start-app-proxy'
 
 # open slack in dev mode
 alias slackdev='SLACK_DEVELOPER_MENU=true open -a /Applications/Slack.app'
 
-alias refreshschema='sh ~/Sites/drop-and-sync/refresh-schema.sh'
 
 # gcp: wipe pr and redeploy
 alias tg-gcp='npx --ignore-existing @teselagen/tg-gcp'
@@ -130,4 +139,6 @@ alias cleanvscode='rm -rf ~/Library/Application\ Support/Code/Cache/* && rm -rf 
 
 alias cleandocker='docker volume prune; docker image prune; docker system prune;'
 
+
 alias prsinglelab='npx "@teselagen/tg-gcp" gkePRToSingleLabMode'
+alias dlogs='docker logs --tail 1000 -f'

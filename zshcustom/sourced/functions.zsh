@@ -176,3 +176,20 @@ cypressDocker() {
 killport() {
 	lsof -i tcp:${1} | awk 'NR!=1 {print $2}' | xargs kill -9
 }
+
+updateJ5Parser() {
+	echo "make sure you're at the root of the lims repo"
+	cd j5-parser &&
+		pubpatchsimple &&
+		cd ../microservice/microservices/j5 &&
+		yarn add @teselagen/j5-parser@latest &&
+		pubpatchsimple &&
+		echo "################"
+	echo "#####SUCCESS####"
+	echo "################"
+	echo "now go to microservice/microservice-workers/express-js-worker/task-runner.config.json and update the @teselagen/j5 there"
+}
+
+pubpatchsimple() {
+	npm version patch && npm publish
+}
