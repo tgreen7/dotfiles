@@ -193,3 +193,26 @@ updateJ5Parser() {
 pubpatchsimple() {
 	npm version patch && npm publish
 }
+
+cr() {
+	# Approve the PR as CR. Usage:
+	# cr           (on a branch in lims)
+	# cr 12443       (from anywhere)
+	PR_NUMBER=${1:-$(gh pr view --json number --jq '.number')} || {
+		echo "Please provide a PR number"
+		return 1
+	}
+	gh pr review $PR_NUMBER --repo "TeselaGen/lims" --approve --body "CR"
+	echo "PR approved: $(gh pr view --json url --jq '.url')"
+}
+qa() {
+	# Approve the PR as QA. Usage:
+	# qa 				 (on a branch in lims)
+	# qa 12213 		 (from anywhere)
+	PR_NUMBER=${1:-$(gh pr view --json number --jq '.number')} || {
+		echo "Please provide a PR number"
+		return 1
+	}
+	gh pr review $PR_NUMBER --repo "TeselaGen/lims" --approve --body "QA"
+	echo "PR approved: $(gh pr view --json url --jq '.url')"
+}

@@ -64,8 +64,8 @@ alias glog="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %C
 alias glog2="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --all --since=2.days.ago --author=Taoh"
 alias glog3="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --all --since=3.days.ago --until=2.days.ago --author=Taoh"
 
-unalias gst
 
+# unalias gst
 gst() {
   if [ $1 ]; then
 		git stash -u -m $1
@@ -82,14 +82,14 @@ alias gcom='git checkout $(git_main_branch)'
 alias gd='git diff'
 alias gds='git diff --shortstat'
 alias gm='git merge'
-alias gmm='ggpull; git merge origin/$(git_main_branch)'
+alias gmm='ggpull; git fetch; git merge origin/$(git_main_branch)'
 alias gb='git branch'
 alias gcp='git cherry-pick'
 alias ggpull='git pull origin $(git_current_branch)'
 alias ggpush='git push origin $(git_current_branch)'
 alias greset='git reset --hard HEAD'
 alias gdelete='git branch --merged | egrep -v "(^\*|master|qa|main)" | xargs git branch -d'
-alias gempty='gcam "empty" --allow-empty && ggpush'
+alias gempty='gcam "chore: empty commit" --allow-empty && ggpush'
 alias gpr='gh pr create --web'
 alias gres='git reset --hard HEAD'
 alias gcop='echo "🙏 praise be 🙏" && git checkout -'
@@ -101,6 +101,8 @@ alias yarndepsrunclean='yarn clean-node-modules && yarn deps && yarn start-app-p
 
 # open slack in dev mode
 alias slackdev='SLACK_DEVELOPER_MENU=true open -a /Applications/Slack.app'
+
+alias dockerlogsmicroservice='docker logs --tail 1000 -f microservice-worker'
 
 
 # gcp: wipe pr and redeploy
@@ -118,6 +120,11 @@ alias ec='cd ~/Sites/lims && EVOLVE=1 yarn --cwd ~/Sites/lims/applauncher start 
 alias ysap="cd ~/Sites/lims && yarn start-app-proxy"
 alias ysapforce="cd ~/Sites/lims && FORCE_SCHEMA_REFRESH=1 yarn start-app-proxy"
 alias yr='cd ~/Sites/lims && yarn restart'
+alias ysb='cd ~/Sites/lims && yarn start-backend'
+alias ysbforce='cd ~/Sites/lims && FORCE_SCHEMA_REFRESH=1 yarn start-backend'
+alias ysf='cd ~/Sites/lims && yarn start-frontend'
+alias cliwatch='cd ~/Sites/lims/tg-api && yarn watch'
+alias cli='cd ~/Sites/lims/tg-api && yarn build-api'
 
 # alias app='cd ~/Sites/lims && APP=1 yarn --cwd ~/Sites/lims/applauncher start'
 
@@ -142,3 +149,4 @@ alias cleandocker='docker volume prune; docker image prune; docker system prune;
 
 alias prsinglelab='npx "@teselagen/tg-gcp" gkePRToSingleLabMode'
 alias dlogs='docker logs --tail 1000 -f'
+alias msalert='node ~/Sites/dotfiles/alertIfMissingMSJ5.js'
