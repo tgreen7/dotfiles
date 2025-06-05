@@ -82,6 +82,11 @@ PATH="$PATH:/opt/homebrew/Cellar/python@3.9/3.9.12/libexec/bin"
 PATH="$PATH:$HOME/.cargo/bin"
 PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
+
+# betteromics
+export BETTER_HOME=$HOME/Sites/tg-betteromics
+export PYTHONPATH=$BETTER_HOME/root:$BETTER_HOME/root/betteromics_sdk
+
 export PATH=${PATH}
 
 export PATH="/Applications/pgsql/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -130,3 +135,6 @@ if [ -f '/Users/taoh/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/taoh
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# iterm
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

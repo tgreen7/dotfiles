@@ -120,12 +120,12 @@ gcob() {
 		return
 	fi
 	wasStashed=false
-	if [[ "$(git_current_branch)" != "master" ]]; then
+	if [[ "$(git_current_branch)" != "$(git_main_branch)" ]]; then
 		if gst | grep -q 'No local changes'; then
 		else
 			wasStashed=true
 		fi
-		gco master
+		gco $(git_main_branch)
 	fi
 	ggpull
 	gco -b $1
