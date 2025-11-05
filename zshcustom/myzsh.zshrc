@@ -61,7 +61,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #
-plugins=(z)
+plugins=(z autoswitch_virtualenv)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
@@ -138,3 +138,16 @@ eval "$(pyenv init -)"
 
 # iterm
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+# bun completions
+[ -s "/Users/taoh/.bun/_bun" ] && source "/Users/taoh/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

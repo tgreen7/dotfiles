@@ -216,3 +216,13 @@ qa() {
 	gh pr review $PR_NUMBER --repo "TeselaGen/lims" --approve --body "QA"
 	echo "PR approved: $(gh pr view --json url --jq '.url')"
 }
+
+cleanvscode() {
+	rm -rf ~/Library/Application\ Support/Code/Cache
+	rm -rf ~/Library/Application\ Support/Code/CachedData
+	rm -rf ~/Library/Application\ Support/Code/GPUCache
+	rm -rf ~/Library/Application\ Support/Code/Code\ Cache
+	rm -rf ~/Library/Application\ Support/Code/Service\ Worker
+	rm -rf ~/Library/Application\ Support/Code/DawnWebGPUCache
+	rm -rf ~/Library/Application\ Support/Code/DawnGraphiteCache
+}
