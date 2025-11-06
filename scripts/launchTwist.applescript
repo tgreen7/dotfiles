@@ -17,7 +17,7 @@ tell application "iTerm2"
             set session1 to current session
             tell session1
                 set name to "Server"
-                write text "bs"
+                write text "cd ~/Sites/tg-betteromics/root && yarn dev:server"
             end tell
             
             -- **PANE 2: CLIENT (Simulate Split)**
@@ -31,8 +31,26 @@ tell application "iTerm2"
             tell session2
                 set name to "Client"
                 -- Run the command, then open a persistent shell (/bin/zsh)
-                write text "bc"
+                write text "cd ~/Sites/tg-betteromics/root && yarn dev:ui; /bin/zsh"
             end tell
+            
+            -- **PANE 3: MONITOR (Simulate Split)**
+            -- We just created Session 2, so it is the active one, ready to be split again.
+            tell application "System Events" to keystroke "d" using {command down, shift down}
+            
+            -- Pause to allow the split to register
+            delay 0.5
+            
+            -- Session 3 is now the active session
+            set session3 to current session
+            tell session3
+                set name to "Monitor"
+                -- Run the command, then open a persistent shell (/bin/zsh)
+                write text "cd ~/Sites/tg-betteromics/root && yarn dev:auth; /bin/zsh"
+            end tell
+            
+            -- Optional: Re-focus on the first session (Server)
+            select session1
             
         end tell
     end tell

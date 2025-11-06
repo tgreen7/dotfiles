@@ -93,6 +93,10 @@ alias gpr='gh pr create --web'
 alias gres='git reset --hard HEAD'
 alias gcop='echo "🙏 praise be 🙏" && git checkout -'
 alias gitmissingtext='git log -c -S' # git log -c -S'missingtext' /path/to/file
+
+alias twist='osascript ~/sites/dotfiles/scripts/launchTwist.applescript'
+alias lims='osascript ~/sites/dotfiles/scripts/lims.applescript'
+
 # sudo -s
 # docker exec -ti lims_app bash
 alias fixPackageConflicts='node ~/Sites/dotfiles/scripts/fixPackageJsonConflicts.js'
@@ -107,28 +111,25 @@ alias tg-gcp='npx --ignore-existing @teselagen/tg-gcp'
 alias resetpr='npx --ignore-existing @teselagen/tg-gcp resetPRApp'
 #then use docker exec -it /bin/bash
 alias connectpr='tg-gcp connectToProjectAppEngine tg-app-dev --default'
-
+alias cdlims='cd ~/Sites/lims'
 # lims aliases
 # dont override "test" alias, it is used by zsh
-alias dc='lims && DESIGN=1 yarn --cwd ~/Sites/lims/applauncher start client'
-alias bc='lims && BUILD=1 yarn --cwd ~/Sites/lims/applauncher start client'
-alias tc='lims && TEST=1 yarn --cwd ~/Sites/lims/applauncher start client'
-alias ec='lims && EVOLVE=1 yarn --cwd ~/Sites/lims/applauncher start client'
-alias ysap="lims && yarn start-app-proxy"
-alias ysapforce="lims && FORCE_SCHEMA_REFRESH=1 yarn start-app-proxy"
-alias lims='cd ~/Sites/lims'
-alias yr='lims && yarn restart'
-alias ysb='lims && ysb'
-alias yarndepsrun='lims && yarn deps && ysb'
-alias yarndepsrunclean='lims && yarn clean-node-modules && yarn deps && ysb'
-alias bs='lims && yarn start-backend'
-alias bsforce='lims && FORCE_SCHEMA_REFRESH=1 yarn start-backend'
+alias dc='cdlims && DESIGN=1 yarn --cwd ~/Sites/lims/applauncher start client'
+alias bc='cdlims && BUILD=1 yarn --cwd ~/Sites/lims/applauncher start client'
+alias tc='cdlims && TEST=1 yarn --cwd ~/Sites/lims/applauncher start client'
+alias ec='cdlims && EVOLVE=1 yarn --cwd ~/Sites/lims/applauncher start client'
+alias ysap="cdlims && yarn start-app-proxy"
+alias ysapforce="cdlims && FORCE_SCHEMA_REFRESH=1 yarn start-app-proxy"
+alias yr='cdlims && yarn restart'
+alias ysb='cdlims && ysb'
+alias yarndepsrun='cdlims && yarn deps && ysb'  
+alias yarndepsrunclean='cdlims && yarn clean-node-modules && yarn deps && ysb'
+alias bs='cdlims && yarn start-backend'
+alias bsforce='cdlims && FORCE_SCHEMA_REFRESH=1 yarn start-backend'
 alias ysbforce='bsforce'
 alias bsf='bsforce'
-alias ysf='lims && yarn start-frontend'
-alias bc='lims && yarn start-frontend'
-alias cliwatch='lims/tg-api && yarn watch'
-alias cli='lims/tg-api && yarn build-api'
+alias ysf='cdlims && yarn start-frontend'
+alias bc='cdlims && yarn start-frontend'
 alias btw="bun test --watch"
 
 # start and stop postgresql@16 service
