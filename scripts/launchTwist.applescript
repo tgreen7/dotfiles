@@ -21,10 +21,11 @@ tell application "iTerm2"
             end tell
             
             -- **PANE 2: CLIENT (Simulate Split)**
+            tell application "iTerm2" to activate
             tell application "System Events" to keystroke "d" using {command down, shift down}
-            
+        
             -- Pause to allow the split to register
-            delay 0.5
+            delay 1
             
             -- Session 2 is now the active session
             set session2 to current session
@@ -36,10 +37,11 @@ tell application "iTerm2"
             
             -- **PANE 3: MONITOR (Simulate Split)**
             -- We just created Session 2, so it is the active one, ready to be split again.
+            tell application "iTerm2" to activate
             tell application "System Events" to keystroke "d" using {command down, shift down}
-            
+        
             -- Pause to allow the split to register
-            delay 0.5
+            delay 1
             
             -- Session 3 is now the active session
             set session3 to current session

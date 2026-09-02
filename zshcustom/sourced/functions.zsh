@@ -226,3 +226,32 @@ cleanvscode() {
 	rm -rf ~/Library/Application\ Support/Code/DawnWebGPUCache
 	rm -rf ~/Library/Application\ Support/Code/DawnGraphiteCache
 }
+
+# media server
+vscodemedia() {
+  code --remote ssh-remote+mediaserver /home/taoh/media-server.code-workspace
+}
+
+
+media() {
+	# "http://192.168.0.102:8096" # Jellyfin
+  #       "http://192.168.0.102:8080" # qBittorrent
+  #       "http://192.168.0.102:7878" # Radarr
+  #       "http://192.168.0.102:8989" # Sonarr
+  #       "http://192.168.0.102:9696" # Prowlarr
+  #       "http://192.168.0.102:8191" # FlareSolverr
+    # Open all media server web dashboards in your default browser
+	(
+        nohup /Applications/Firefox.app/Contents/MacOS/firefox --new-window \
+            -new-tab -url "http://192.168.0.102:8080" \
+            -new-tab -url "http://192.168.0.102:7878" \
+            -new-tab -url "http://192.168.0.102:8989" \
+						 </dev/null &>/dev/null &
+    ) &>/dev/null
+
+  ssh -t taoh@192.168.0.102
+}
+
+mediassh() {
+  ssh -t taoh@192.168.0.102
+}

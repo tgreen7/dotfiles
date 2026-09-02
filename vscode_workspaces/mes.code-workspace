@@ -1,0 +1,33 @@
+{
+	"folders": [
+		{
+			"path": "/Users/taoh/TwistRepos/mes-koala"
+		},
+		{
+			"path": "/Users/taoh/TwistRepos/mes-caliber"
+		},
+		{
+			"path": "/Users/taoh/TwistRepos/antibody-data-service"
+		},
+		{
+			"path": "../../../TwistRepos/bpx-ab-dev-kit"
+		},
+		{
+			"path": "../../../TwistRepos/mes-grun"
+		}
+	],
+	"settings": {
+		"chat.tools.terminal.autoApprove": {
+			"git rev-parse": true,
+			"git checkout": true,
+			"git pull": true,
+			"git merge-base": true,
+			"git rev-list": true,
+			"git cherry": true,
+			"git -C \"$repo\"": true,
+			"pytest": true,
+			"gh": true,
+			"npx eslint": true
+		}
+	}
+}

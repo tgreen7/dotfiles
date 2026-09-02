@@ -94,6 +94,11 @@ alias gres='git reset --hard HEAD'
 alias gcop='echo "🙏 praise be 🙏" && git checkout -'
 alias gitmissingtext='git log -c -S' # git log -c -S'missingtext' /path/to/file
 
+
+#bun
+alias bi='bun install'
+alias br='bun run'
+
 alias twist='osascript ~/sites/dotfiles/scripts/launchTwist.applescript'
 alias lims='osascript ~/sites/dotfiles/scripts/lims.applescript'
 
@@ -114,22 +119,11 @@ alias connectpr='tg-gcp connectToProjectAppEngine tg-app-dev --default'
 alias cdlims='cd ~/Sites/lims'
 # lims aliases
 # dont override "test" alias, it is used by zsh
-alias dc='cdlims && DESIGN=1 yarn --cwd ~/Sites/lims/applauncher start client'
-alias bc='cdlims && BUILD=1 yarn --cwd ~/Sites/lims/applauncher start client'
-alias tc='cdlims && TEST=1 yarn --cwd ~/Sites/lims/applauncher start client'
-alias ec='cdlims && EVOLVE=1 yarn --cwd ~/Sites/lims/applauncher start client'
-alias ysap="cdlims && yarn start-app-proxy"
-alias ysapforce="cdlims && FORCE_SCHEMA_REFRESH=1 yarn start-app-proxy"
-alias yr='cdlims && yarn restart'
-alias ysb='cdlims && ysb'
-alias yarndepsrun='cdlims && yarn deps && ysb'  
-alias yarndepsrunclean='cdlims && yarn clean-node-modules && yarn deps && ysb'
-alias bs='cdlims && yarn start-backend'
-alias bsforce='cdlims && FORCE_SCHEMA_REFRESH=1 yarn start-backend'
-alias ysbforce='bsforce'
+alias bs='cdlims && bun run start-backend'
+alias bsforce='cdlims && FORCE_SCHEMA_REFRESH=1 bun run start-backend'
 alias bsf='bsforce'
-alias ysf='cdlims && yarn start-frontend'
-alias bc='cdlims && yarn start-frontend'
+alias bd='cdlims && bun run start-local-background-deps'
+alias bc='cdlims && bun run start-frontend'
 alias btw="bun test --watch"
 
 # start and stop postgresql@16 service
@@ -145,7 +139,7 @@ alias t2='cd ~/Sites/lims2 && CD_TO_FOLDER="~/Sites/lims2" TEST=1 yarn --cwd ~/S
 alias e2='cd ~/Sites/lims2 && CD_TO_FOLDER="~/Sites/lims2" EVOLVE=1 yarn --cwd ~/Sites/lims2/applauncher start'
 alias app2='cd ~/Sites/lims2 && CD_TO_FOLDER="~/Sites/lims2" APP=1 yarn --cwd ~/Sites/lims2/applauncher start'
 
-alias cypress='cd ~/Sites/lims && yarn c'
+alias cypress='cd ~/Sites/lims && bun run cy'
 
 alias codefresh='cd ~/Sites/lims && yarn docker-build && yarn docker-build-ci && yarn run-dc; yarn c'
 

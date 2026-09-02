@@ -118,6 +118,9 @@ for file in $ZSH_CUSTOM/sourced/*; do
 	source "$file"
 done
 
+# Source local machine-only secrets if the file exists
+[[ -f ~/local.zshrc ]] && source ~/local.zshrc
+
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/} ($(git_current_branch))\007"'
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -151,3 +154,4 @@ export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
