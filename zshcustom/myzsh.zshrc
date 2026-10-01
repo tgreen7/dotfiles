@@ -119,7 +119,7 @@ for file in $ZSH_CUSTOM/sourced/*; do
 done
 
 # Source local machine-only secrets if the file exists
-[[ -f ~/local.zshrc ]] && source ~/local.zshrc
+[[ -f $ZSH_CUSTOM/local.zshrc ]] && source $ZSH_CUSTOM/local.zshrc
 
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/} ($(git_current_branch))\007"'
 

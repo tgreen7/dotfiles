@@ -236,6 +236,9 @@ vscodemedia() {
 media() {
 	# "http://192.168.0.102:8096" # Jellyfin
   #       "http://192.168.0.102:8080" # qBittorrent
+  #       "http://192.168.0.102:8096" # jellyfin
+  #       "http://192.168.0.102:3000" # homepage
+  #       "http://192.168.0.102:5555" # seerr
   #       "http://192.168.0.102:7878" # Radarr
   #       "http://192.168.0.102:8989" # Sonarr
   #       "http://192.168.0.102:9696" # Prowlarr
@@ -243,9 +246,7 @@ media() {
     # Open all media server web dashboards in your default browser
 	(
         nohup /Applications/Firefox.app/Contents/MacOS/firefox --new-window \
-            -new-tab -url "http://192.168.0.102:8080" \
-            -new-tab -url "http://192.168.0.102:7878" \
-            -new-tab -url "http://192.168.0.102:8989" \
+            -new-tab -url "http://192.168.0.102:3000" \
 						 </dev/null &>/dev/null &
     ) &>/dev/null
 
